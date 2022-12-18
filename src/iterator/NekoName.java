@@ -11,8 +11,8 @@ public class NekoName implements Aggregate{
         return nekos[index];
     }
     
-    public void appendNeko(Neko Neko) {
-        this.nekos[last] = Neko;
+    public void appendNeko(Neko neko) {
+        this.nekos[last] = neko;
         last++;
     }
     
