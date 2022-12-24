@@ -1,0 +1,19 @@
+@startuml adapter
+class Main
+abstract class CalcSum{
+    + {abstract} nSum(n: int): int
+    + {abstract} nmSum(n: int,m: int): int
+}
+class CalcSumAdapter{
+    - sumByRecursive: SumByRecursive
+    + nSum(n: int): int
+    + nmSum(n: int,m: int): int
+}
+class SumByRecursive{
+    + nSum(n: int): int
+    + nmSum(n: int,m: int): int
+}
+Main -- CalcSum : Uses >
+CalcSumAdapter--|>CalcSum
+CalcSumAdapter o--> SumByRecursive : has >
+@enduml
