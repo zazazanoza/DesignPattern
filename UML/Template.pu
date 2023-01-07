@@ -1,0 +1,26 @@
+@startuml template
+class Main
+class EightTax{
+    - price : int
+    + EightTax()
+    + beforeDisplay(): void
+    + tax(): int
+    + afterDisplay(): void
+}
+class TenTax{
+    - price : int
+    + TenTax()
+    + beforeDisplay(): void
+    + tax(): int
+    + afterDisplay(): void
+}
+abstract class ConsumptionTax{
+    + {abstract} beforeDisplay(): void
+    + {abstract} tax(): int
+    + {abstract} afterDisplay(): void
+}
+EightTax--|>ConsumptionTax 
+TenTax--|>ConsumptionTax 
+Main -- ConsumptionTax : Uses >
+
+@enduml
