@@ -1,0 +1,36 @@
+@startuml factory
+abstract class Factory{
+    + create(name: String) : Pet
+    + {abstract} createPet(name: String): Pet
+    + {abstract} registerPet(pet: Pet): void
+}
+abstract class Pet{
+    + name: String
+    + onaka: int
+    + {abstract} mohumohu(): void
+    + {abstract} esayari(): void
+    + {abstract} oyasumi(): void
+    + {abstract} getName(): String
+}
+
+class NekoFactory{
+    - nekochans: List<String>
+    + createPet(name: String) : Pet
+    + registerPet(pet: Pet): void
+    + getNekochans(): List
+}
+class Neko{
+    + name: String
+    + onaka: int
+    +  mohumohu(): void
+    +  esayari(): void
+    +  oyasumi(): void
+    +  getName(): String
+}
+
+Neko--|>Pet 
+NekoFactory--|>Factory 
+Factory-->Pet :Creates >
+NekoFactory-->Neko :Creates >
+
+@enduml

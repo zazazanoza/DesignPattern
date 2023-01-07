@@ -12,7 +12,6 @@ public class CalcSumAdapter extends CalcSum {
 	public int nmSum(int n, int m) {
 		return sumByRecursive.nmSum(n, m);
 	}
-
 }
 
 //public class CalcSumAdapter extends CalcSum {
