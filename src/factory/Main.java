@@ -5,7 +5,7 @@ import factory.framework.Pet;
 import factory.neko.NekoFactory;
 
 public class Main {
-
+//ロジックのクラス
 	public static void main(String[] args) {
 		Factory factory = new NekoFactory();
 
@@ -24,3 +24,5 @@ public class Main {
 	}
 
 }
+
+//ロジックを呼び出すクラス（これがメインですね）を作って、factoryクラス（継承後）を渡してあげることによってロジック側の変更が抑えられる

@@ -1,0 +1,33 @@
+@startuml Prototype
+class Manager{
+    - showcase
+    + register()
+    + create()
+}
+interface Animal{
+    + cry()
+    + createClone()
+}
+class Neko{
+    - name
+    + cry()
+    + createClone()
+}
+class Inu{
+    - name
+    + cry()
+    + createClone()
+}
+class SoAndSo{
+    - name
+    - gobi
+    + cry()
+    + createClone()
+}
+
+Manager-->Animal :Uses
+Neko--|>Animal 
+Inu--|>Animal 
+SoAndSo--|>Animal 
+
+@enduml
