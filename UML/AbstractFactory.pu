@@ -1,0 +1,50 @@
+@startuml abstractfactory
+
+abstract class MainWeapon{
+    + {abstract} useMain()
+}
+
+abstract class SubWeapon{
+    + {abstract} useSub()
+}
+
+abstract class SpecialWeapon{
+    + {abstract} useSpecial()
+}
+
+abstract class Weapon{
+    + {static}Weapon()
+    + {abstract} createMainWeapon()
+    + {abstract}  createSubWeapon()
+    + {abstract}  createSpecialWeapon()
+}
+
+Weapon --> MainWeapon : Creates
+Weapon --> SubWeapon : Creates
+Weapon --> SpecialWeapon : Creates
+
+
+class Wakaba extends MainWeapon {
+    + useMain()
+}
+
+class GreatBarrier extends SpecialWeapon{
+    + useSub()
+}
+
+class SplashBomb extends SubWeapon{
+    + useSpecial()
+}
+
+class WakabaShooter extends Weapon{
+    + Weapon()
+    + createMainWeapon()
+    + createSubWeapon()
+    + createSpecialWeapon()
+}
+
+WakabaShooter --> Wakaba : Creates
+WakabaShooter --> SplashBomb : Creates
+WakabaShooter --> GreatBarrier : Creates
+
+@enduml

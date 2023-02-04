@@ -8,26 +8,21 @@ interface Animal{
     + cry()
     + createClone()
 }
-class Neko{
+class Neko implements Animal{
     - name
     + cry()
     + createClone()
 }
-class Inu{
+class Inu implements Animal{
     - name
     + cry()
     + createClone()
 }
-class SoAndSo{
+class SoAndSo implements Animal{
     - name
     - gobi
     + cry()
     + createClone()
 }
-
 Manager-->Animal :Uses
-Neko--|>Animal 
-Inu--|>Animal 
-SoAndSo--|>Animal 
-
 @enduml
