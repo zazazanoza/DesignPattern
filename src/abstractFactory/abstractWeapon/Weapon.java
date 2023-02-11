@@ -4,7 +4,7 @@ public abstract class Weapon {
     public static Weapon getWeapon(String classname) {
         Weapon weapon = null;
         try {
-            //weapon = (Weapon) Class.forName(classname).newInstance();
+            //weapon = (Weapon) Class.forName(classname).newInstance(); //Java9から非推奨
             weapon = (Weapon) Class.forName(classname).getDeclaredConstructor().newInstance();
 
         } catch (ClassNotFoundException e) {

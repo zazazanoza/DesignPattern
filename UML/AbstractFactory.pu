@@ -13,7 +13,7 @@ abstract class SpecialWeapon{
 }
 
 abstract class Weapon{
-    + {static}Weapon()
+    + {static}getWeapon()
     + {abstract} createMainWeapon()
     + {abstract}  createSubWeapon()
     + {abstract}  createSpecialWeapon()
