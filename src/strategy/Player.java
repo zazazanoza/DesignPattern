@@ -13,9 +13,13 @@ public class Player {
         this.special = special;
     }
     
-    void fight() {
+    public void fight() {
         main.useMain();
         special.useSpecial();
+    }
+
+    public void setMain(MainWeapon main) {
+        this.main = main;
     }
 
 }

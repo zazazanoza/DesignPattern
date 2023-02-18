@@ -15,6 +15,13 @@ public class Main {
         p1.fight();
         p2.fight();
 
+        System.out.println("WAVE 1 CREAR!");
+        
+        p1.setMain(new Take());
+        p2.setMain(new Wakaba());
+        
+        p1.fight();
+        p2.fight();
     }
 
 }

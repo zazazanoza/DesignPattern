@@ -1,0 +1,39 @@
+@startuml abstractfactory
+
+Interface MainWeapon{
+    + useMain()
+}
+
+class Wakaba implements MainWeapon {
+    + useMain()
+}
+
+class Take implements MainWeapon {
+    + useMain()
+}
+
+Interface SpecialWeapon{
+    + useSpecial()
+}
+
+class GreatBarrier implements SpecialWeapon{
+    + useSpecial()
+}
+
+class KillerWail5_1 implements SpecialWeapon{
+    + useSpecial()
+}
+
+class Player{
+    - main
+    - Special
+    + Player()
+    + fight()
+    + setMain()
+}
+
+Player o--> MainWeapon
+Player o--> SpecialWeapon
+
+
+@enduml
