@@ -1,0 +1,34 @@
+@startuml Decorate
+
+
+abstract class Decorate{
+    + {abstract} decoration()
+    + {abstract} getPrice()
+    + okaikei()
+}
+
+abstract class Option extends Decorate{
+    # decorate
+    + Option()
+}
+
+ class Banana extends Decorate{
+    + decorate()
+    + getPrice()
+}
+
+class ChocoOption extends Option {
+    + ChocoOption()
+    + decorate()
+    + getPrice()
+}
+
+class AlazanOption extends Option {
+    + AlazanOption()
+    + decorate()
+    + getPrice()
+}
+
+Option o--> Decorate
+
+@enduml
