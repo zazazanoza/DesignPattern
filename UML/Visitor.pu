@@ -1,0 +1,28 @@
+@startuml visitor
+
+interface Inn{
+    + {abstract} stay() : void
+    + {abstract} accept(v : Visitor) : void
+}
+
+class InnA implements Inn{
+    + stay() : void
+    + accept(v : Visitor) : void
+}
+
+class InnB implements Inn{
+    + stay() : void
+    + accept(v : Visitor) : void
+}
+
+abstract class Visitor{
+    + {abstract} visit(innA : InnA) : void
+    + {abstract} visit(innB : InnB) : void
+}
+
+class Maria extends Visitor{
+    + visit(innA : InnA) : void
+    + visit(innB : InnB) : void 
+}
+
+@enduml
