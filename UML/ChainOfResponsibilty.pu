@@ -1,0 +1,50 @@
+@startuml ChainOfResponsibilty
+
+abstract class Weapon {
+  - String name
+  - Weapon next
+  + Weapon(String name)
+  + Weapon setNext(Weapon next)
+  + void appear(Oomono oomono)
+  # {abstract} boolean isAttackSuccessful(Oomono oomono)
+  # void success(Oomono oomono)
+  # void failed(Oomono oomono)
+}
+
+class Wakaba extends Weapon {
+  + Wakaba(String name)
+  # boolean isAttackSuccessful(Oomono oomono)
+}
+
+class PrimeShooter extends Weapon {
+  + PrimeShooter(String name)
+  # boolean isAttackSuccessful(Oomono oomono)
+}
+
+class L4K extends Weapon {
+  + L4K(String name)
+  # boolean isAttackSuccessful(Oomono oomono)
+}
+
+class LongBlaster extends Weapon {
+  + LongBlaster(String name)
+  # boolean isAttackSuccessful(Oomono oomono)
+}
+
+enum Oomono {
+  HEBI("ヘビ")
+  BAKUDAN("バクダン")
+  TOWER("タワー")
+  TEPPAN("テッパン")
+  MOGURA("モグラ")
+  - String m
+  + Oomono(String m)
+}
+
+class Main {
+}
+
+Main -> Weapon : Request
+Weapon o-> Weapon
+
+@enduml
