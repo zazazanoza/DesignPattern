@@ -1,0 +1,20 @@
+@startuml facade
+
+class ConnectionDB {
+- con: Connection
+# ConnectionDB()
+# getCon(): Connection
+# closeDPDB(): void
+}
+
+class WeaponDAO {
++ getWeapon(number: int): String
++ getWeaponAll(): List<String>
+}
+
+class Main {}
+
+Main -> WeaponDAO :Uses
+WeaponDAO o-> ConnectionDB : Usesかも 
+
+@enduml
