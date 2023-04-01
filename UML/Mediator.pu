@@ -1,0 +1,53 @@
+@startuml Mediator
+interface Colleague {
+    + setMediator(mediator: Mediator): void
+    + setColleagueEnabled(enabled: Boolean): void
+}
+
+class ZLButton implements Colleague {
+    - mediator: Mediator
+    + FlipZL(): void
+    + setMediator(mediator: Mediator): void
+    + setColleagueEnabled(enabled: Boolean): void
+}
+
+class ZRButton implements Colleague {
+    - mediator: Mediator
+    + FlipZR(): void
+    + setMediator(mediator: Mediator): void
+    + setColleagueEnabled(enabled: Boolean): void
+}
+
+class RButton implements Colleague {
+    - mediator: Mediator
+    + FlipR(): void
+    + setMediator(mediator: Mediator): void
+    + setColleagueEnabled(enabled: Boolean): void
+}
+
+interface Mediator {
+    + createColleagues(): void
+    + colleagueChanged(status: String): void
+}
+
+class IkaChan implements Mediator{
+    - statusList: List<String>
+    - R: RButton
+    - ZL: ZLButton
+    - ZR: ZRButton
+    - isBombReady: Boolean
+    + IkaChan(ZL: ZLButton, ZR: ZRButton, R: RButton)
+    + createColleagues(): void
+    + colleagueChanged(status: String): void
+    - toggleStatus(status: String): void
+}
+
+IkaChan o-> RButton
+IkaChan o-> ZLButton
+IkaChan o-> ZRButton
+
+RButton  o-> Mediator
+ZLButton o-> Mediator
+ZRButton o-> Mediator
+
+@enduml
