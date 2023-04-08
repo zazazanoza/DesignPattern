@@ -1,0 +1,30 @@
+@startuml Observer
+abstract class Animal {
+- observers: List<Observer>
++ addObserver(observer: Observer): void
++ deleteObserver(observer: Observer): void
++ notifyObservers(): void
++ {abstract} getCry(): String
++ {abstract} cry(): void
+}
+
+interface Observer {
++ update(animal: Animal): void
+}
+
+class Neko extends Animal{
+  - cries: String[]
+  - cry: String
+  + getCry(): String
+  + cry(): void
+}
+
+class Kainushi extends Observer{
+  - catSounds: Map<String, String>
+  + Kainushi()
+  + update(animal: Animal): void
+}
+
+Animal o-> Observer : Notifies
+
+@enduml

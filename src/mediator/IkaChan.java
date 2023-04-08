@@ -32,6 +32,7 @@ public class IkaChan implements Mediator {
         if (statusList.size() == 0) {
             if (isBombReady && status == "R")
                 R.setColleagueEnabled(false);
+            isBombReady = false;
             System.out.println("ヒト状態");
             return;
         }
