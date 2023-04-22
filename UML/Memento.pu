@@ -1,0 +1,26 @@
+@startuml Memento
+class HighAndLow {
+    - money: int
+    - random: Random
+    - dice1: int
+    - dice2: int
+    + HighAndLow(money: int)
+    + getMoney(): int
+    + bet(): void
+    + createMemento(): Memento
+    + restoreMemento(memento: Memento): void
+}
+
+class Memento {
+    ~ money: int
+    + Memento(money: int)
+    ~ getMoney(): int
+}
+
+class Main {
+}
+
+Main o-> Memento
+Main --> HighAndLow : Requests
+HighAndLow --> Memento : Creates
+@enduml
