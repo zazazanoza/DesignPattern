@@ -1,0 +1,20 @@
+@startuml flyweight
+
+class Manual {
+    - title: String
+    + Manual(title: String)
+    + print(): void
+}
+
+class ManualFactory {
+    - pool: HashMap<String, Manual>
+    - singleton: ManualFactory
+    + getInstance(): ManualFactory
+    + useManual(title: String): void
+    + printManualList(): void
+}
+
+ManualFactory o-> Manual : Creates
+Main -> ManualFactory : Uses
+
+@enduml
