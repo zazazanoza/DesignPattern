@@ -1,0 +1,41 @@
+@startuml Command
+interface Command {
+    + execute(): void
+}
+
+class PlayGame implements Command{
+    - num: Integer
+    - hatsukaze: Hatsukaze
+    + PlayGame(num: Integer, hatsukaze: Hatsukaze)
+    + execute(): void
+}
+
+class Sleep implements Command {
+    - num: Integer
+    - hatsukaze: Hatsukaze
+    + Sleep(num: Integer, hatsukaze: Hatsukaze)
+    + execute(): void
+}
+
+class Hatsukaze {
+    + actionGame(num: Integer): void
+    + actionSleep(num: Integer): void
+}
+
+class God {
+    - commands: Stack<Command>
+    + addCommand(command: Command): void
+    + undoCommand(): void
+    + execute(): void
+}
+
+class Main{}
+
+God o-> Command
+PlayGame o-> Hatsukaze
+Sleep o-> Hatsukaze
+
+Main --> PlayGame : Creates 
+Main --> Sleep : Creates 
+
+@enduml
